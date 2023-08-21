@@ -1,0 +1,5 @@
+libro_profesor/
+pythonweb/
+*.org
+__pycache__/
+.~lock*
