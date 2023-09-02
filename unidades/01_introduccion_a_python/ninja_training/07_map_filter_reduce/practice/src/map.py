@@ -7,7 +7,6 @@ Python para transformar listas.
 A parte de las funciones que tienes que escribir, puedes crear todo el código
 que consideres oportuno: variables, constantes, otras funciones, etc.
 """
-from math import floor
 
 
 # TODO Escribe una función llamada `add_to_list` que reciba dos parámetros: una
@@ -19,8 +18,6 @@ from math import floor
 #
 #      Devolvería:
 #      [16, 17, 18, 19, 20]
-def add_to_list(numbers: list[int], addition: int) -> list[int]:
-    return list(map(lambda n: n + addition, numbers))
 
 
 # TODO Escribe una función llamada `str_lengths` que reciba como parámetro una
@@ -32,8 +29,6 @@ def add_to_list(numbers: list[int], addition: int) -> list[int]:
 #
 #      Devolvería esta otra lista:
 #      [5, 3, 4, 3]
-def str_lengths(strings: list[str]) -> list[int]:
-    return list(map(lambda s: len(s), strings))
 
 
 # TODO Escribe una función llamada `mark_descriptions` que reciba una lista de
@@ -42,16 +37,6 @@ def str_lengths(strings: list[str]) -> list[int]:
 #      - Nota menor que 5: "Suspenso"
 #      - Nota igual a 5 o 6: "Susprobado"
 #      - Nota mayor que 6: "Aprobado"
-def mark_descriptions(marks: list[int]) -> list[str]:
-    def mark_to_desc(m: int) -> str:
-        if m < 5:
-            return "Suspenso"
-        elif m < 7:
-            return "Susprobado"
-        else:
-            return "Aprobado"
-
-    return list(map(mark_to_desc, marks))
 
 
 # TODO Escribe una función llamada `student_names` que reciba un diccionario
@@ -63,8 +48,6 @@ def mark_descriptions(marks: list[int]) -> list[str]:
 #
 #      Devolvería esta lista:
 #      ["Alice", "Bob", "Mary", "Jon"]
-def student_names(students: dict[str, int]) -> list[str]:
-    return list(map(lambda student_tuple: student_tuple[0], students.items()))
 
 
 # TODO Escribe una función llamada `my_round` que reciba números reales y
@@ -78,8 +61,6 @@ def student_names(students: dict[str, int]) -> list[str]:
 #
 #      Para redondear los números hacia abajo tienes una función en la
 #      biblioteca `math` de Python llamada `floor`
-def my_round(numbers: list[float]) -> list[int]:
-    return list(map(lambda n: floor(n), numbers))
 
 
 # TODO Escribe una función llamada `anonymize` que reciba una lista de
@@ -105,10 +86,4 @@ def my_round(numbers: list[float]) -> list[int]:
 #      MUCHO OJO AQUÍ!!! NO DEBERÍAS MODIFICAR EL DICCIONARIO ORIGINAL.
 #      En Python existe el método `copy` de `dict` para hacer una copia de un
 #      diccionario.
-def anonymize(students: list[dict]) -> list[dict]:
-    def del_name(student: dict) -> dict:
-        student_copy = student.copy()
-        del student_copy["name"]
-        return student_copy
 
-    return list(map(del_name, students))
