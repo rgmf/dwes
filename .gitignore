@@ -1,5 +1,7 @@
 libro_profesor/
 pythonweb/
+programacion_didactica/
+presentacion.odp
 *.org
 __pycache__/
 .~lock*
