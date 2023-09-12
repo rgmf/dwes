@@ -1,3 +1,14 @@
+# Antes de empezar, hay algunos requirimientos
+Se **rechazarán las prácticas** que:
+
+- **No cumplan con las PEP-8**, con dos excepciones: las líneas pueden ser de hasta 100 caracteres y no hace falta añadir docstrings en las funciones y los módulos.
+- Los comentarios y los nombres de variables y funciones tienen que ser en **inglés**.
+- Los **nombres de variables y funciones tienen que ser descriptivos**. Se pueden usar las letras `i`, `j`... para nombres de variables que contienen índices y contadores en bucles.
+
+Las prácticas rechazadas podrán ser corregidas y vueltas a entregar, pero cada **entrega extra supondrá una penalizacion del 20%**.
+
+Voy a leer todo el código que escribas: sé consciente de ello :sunglasses:.
+
 # Hangman
 En esta práctica tienes que desarrollar el juego del Ahorcado (Hangman en inglés) usando el módulo `src.view.gallow` para la parte "gráfica". Se trata de un juego hecho para la terminal con una biblioteca de Python llamada Rich.
 
