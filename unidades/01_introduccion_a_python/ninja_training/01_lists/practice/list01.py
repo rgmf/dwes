@@ -22,3 +22,8 @@ from random import randint
 
 # Creamos una lista con 10 números aleatorios entre 0 y 100.
 random_numbers: list[int] = [randint(0, 100) for _ in range(10)]
+print(random_numbers)
+
+l1: list[int] = [random_numbers[3]]
+
+print(f"La lista l1: {l1}")

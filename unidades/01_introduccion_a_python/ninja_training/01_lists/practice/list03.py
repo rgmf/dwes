@@ -11,7 +11,7 @@ A partir de aquí, tienes que hacer lo siguiente:
 - Guarda en una variable llamada `second_letter` la segunda letra más pequeña
   de `text`.
 
-- Construye una lista llamada `letters` con las dos primeras letras.
+- Construye una lista llamada `two_first_letters` con las dos primeras letras.
 
 - Construye una lista llamada `others` que contenga el resto de letras en orden
   de menor a mayor.

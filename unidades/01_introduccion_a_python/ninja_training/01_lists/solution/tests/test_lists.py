@@ -1,7 +1,7 @@
 from ..list01 import random_numbers, l1, l2, l3, l4, l5
 from ..list02 import a_stack, ascending_list, descending_list, last_item
 from ..list03 import (
-    text, sorted_text, first_letter, second_letter, others, two_first_letters
+    text, first_letter, second_letter, others, two_first_letters
 )
 
 
@@ -39,7 +39,7 @@ def test_list02():
 
 def test_list03():
     assert len(text) > 2
-    assert sorted_text == sorted(text)
+    sorted_text: str = sorted(text)
     assert first_letter == sorted_text[0]
     assert second_letter == sorted_text[1]
     assert others == sorted_text[2:]

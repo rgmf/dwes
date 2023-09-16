@@ -2,6 +2,8 @@ libro_profesor/
 pythonweb/
 programacion_didactica/
 presentacion.odp
+venv/
+.vscode/
 *.org
 __pycache__/
 .~lock*
