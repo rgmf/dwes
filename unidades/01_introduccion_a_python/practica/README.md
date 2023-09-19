@@ -1,4 +1,5 @@
-# Antes de empezar, hay algunos requirimientos
+# Criterios de calificación
+## Antes de empezar, hay algunos requirimientos
 Se **rechazarán las prácticas** que:
 
 - **No cumplan con las PEP-8**, con dos excepciones: las líneas pueden ser de hasta 100 caracteres y no hace falta añadir docstrings en las funciones y los módulos.
@@ -8,6 +9,22 @@ Se **rechazarán las prácticas** que:
 Las prácticas rechazadas podrán ser corregidas y vueltas a entregar, pero cada **entrega extra supondrá una penalizacion del 20%**.
 
 Voy a leer todo el código que escribas: sé consciente de ello :sunglasses:.
+
+## Resultados de aprendizaje (RA) y criterios de evaluación (CE)
+Te indico los RA y los CE que se tendrán en cuenta. Para los CE te describo llanamente en qué consiste cada uno de estos CE. Si quieres conocer la descripción formal de cada CE puedes verlos donde te indiqué el primer día de clase que estaban publicados.
+
+- RA2
+  - CE-d: reconoce la sintaxis de Python
+  - CE-e: escribe código simple Python
+  - CE-f: uso de Python
+  - CE-g: usa variables, "type hint" y operadores de Python
+  - CE-h: usa variables en diferentes ámbitos
+- RA3
+  - CE-a: if-elif-else en Python
+  - CE-b: for en Python
+  - CE-c: listas, tuplas y diccionarios en Python
+  - CE-d: funciones en Python
+  - CE-g: comentarios en código Python
 
 # Hangman
 En esta práctica tienes que desarrollar el juego del Ahorcado (Hangman en inglés) usando el módulo `src.view.gallow` para la parte "gráfica". Se trata de un juego hecho para la terminal con una biblioteca de Python llamada Rich.
