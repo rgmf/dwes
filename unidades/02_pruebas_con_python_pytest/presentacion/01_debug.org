@@ -1,0 +1,123 @@
+#+AUTHOR: Román Martínez <rgmf@riseup.net>
+#+TITLE: Pruebas con Python
+#+SUBTITLE: Depuración o debug
+#+LICENSE: CC by-ca-sa
+
+* Pruebas con Python
+[[./img/python_debugger.jpg]]
+** Depuración
+** Pruebas manuales
+** Pruebas automáticas
+
+* Depuración
+Varias opciones para depurar programas en Python:
+** print... todo el mundo lo usa
+** El depurador de Python: pdb
+** IPython: intérprete de Python que forma parte de Jupyter
+*** IPython es el Kernel de Jupyter
+** Herramientas depuración de IDEs como PyCharm o VSCode
+
+* Print para depurar
+#+begin_src python
+  print(">>>>>>>>>>>>>>>> Start: inside foo function")
+  ...
+  print("<<<<<<<<<<<<<<<< End: inside foo function")
+#+end_src
+
+* Uso de pdb para depurar
+** Uso simple: pdb.set_trace()
+Quieres poner un punto de parada para ejecutar el programa paso a paso desde ahí...
+
+#+begin_src python
+  import pdb
+
+  students: dict[str, float] = {"Alice": 7.5, "Bob": 4.75, "Mary": 3.5, "Jon": 6.75}
+  avg_marks: float = 0.0
+
+  pdb.set_trace()  # El programa se detiene aquí para ser depurado
+
+  for name, mark in students.items():
+      avg_marks += mark
+
+  avg_marks /= len(students)
+
+  print(f"La media de la nota de los estudiantes es: {avg_marks}")
+#+end_src
+
+** Uso simple: breakpoint()
+Funciona como la versión anterior pero en vez de `pdb.set_trace()` usamos `breakpoint()`:
+
+#+begin_src python
+  students: dict[str, float] = {"Alice": 7.5, "Bob": 4.75, "Mary": 3.5, "Jon": 6.75}
+  avg_marks: float = 0.0
+
+  breakpoint()  # El programa se detiene aquí para ser depurado
+
+  for name, mark in students.items():
+      avg_marks += mark
+
+  avg_marks /= len(students)
+
+  print(f"La media de la nota de los estudiantes es: {avg_marks}")
+#+end_src
+
+** Invocar a pdb desde la línea de comandos
+Para depurar un **script** (detiene el depurador en la primera línea)
+
+#+begin_src bash
+  python -m pdb myscript.py
+#+end_src
+
+** Post-mortem debugging
+Puedes comprobar qué ha sucedido con un programa que ha "petado" con pdb.
+1. Entra al REPL de Python
+2. Ejecuta el programa desde ahí
+3. Usa pdb.pm() para ver dónde "petó"
+   
+#+begin_src bash
+  >>> import pdb
+  >>> pdb.pm()
+#+end_src
+
+*** Ejemplo
+Fichero ~main.py~
+
+#+begin_src python
+  def fn(x: int) -> float:
+      return 1 / x
+#+end_src
+
+Petá cuando le pasas un 0... Imagina que no sabemos qué pasa. Desde el REPL de Python:
+
+#+begin_src bash
+  >>> from pm import fn
+  >>> fn(0)
+  Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/roman/tmp/pm.py", line 2, in fn
+      return 1 / x
+             ~~^~~
+  ZeroDivisionError: division by zero
+  >>> import pdb
+  >>> pdb.pm()
+  > /home/roman/tmp/pm.py(2)fn()
+  -> return 1 / x
+  (Pdb) 
+#+end_src
+
+** Comandos del depurador
+Puedes verlos todos aquí: [[Comandos del depurador][https://docs.python.org/es/3/library/pdb.html#debugger-commands]]
+Un resumen básico:
+- s :: siguiente instrucción entrando a funciones
+- n :: siguiente instrucción saltando instrucciones
+- c :: continuar hasta siguiente punto de parada
+- b :: seguido de un número para poner punto de parada o break
+- cl :: para limpiar puntos de parada o break (indicando número de línea)
+- l :: muestra 11 líneas de código alrededor de la línea actual
+- q :: para salir del depurador
+
+
+* Referencias
+- PDB: [[El depurador de Python][https://docs.python.org/es/3/library/pdb.html]]
+- IPython: [[IPython Interactive Computing][https://ipython.org/]]
+- 5 formas de depurar en IPython: [[5 maneras de depurar con IPYthon][https://switowski.com/blog/ipython-debugging/]]

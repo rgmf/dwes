@@ -4,6 +4,9 @@ programacion_didactica/
 presentacion.odp
 venv/
 .vscode/
-*.org
 __pycache__/
 .~lock*
+resultados_aprendizaje_con_ce.org
+unidades/01_introduccion_a_python/ideas_practicas.org
+unidades/01_introduccion_a_python/notas.org
+unidades_con_ra_y_ce.org
