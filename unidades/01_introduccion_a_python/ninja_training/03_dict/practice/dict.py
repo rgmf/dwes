@@ -25,7 +25,7 @@ second_capital: str | None = None
 
 # A continuación tienes un diccionario con las temperaturas máximas y mínimas
 # de la última semana (inventadas, claro está).
-weather: dict[str, list[int, int]] = {
+weather: dict[str, list[int]] = {
     "lunes": [30, 25],
     "martes": [33, 24],
     "miercoles": [29, 24],
@@ -65,7 +65,7 @@ friday_min: int | None = None
 
 # Aquí tienes una lista de diccionarios en el que se tiene el alumnado con una
 # nota o calificación.
-students_info: list[dict[str, float]] = [
+students_info: list[dict[str, str | float]] = [
     {
         "name": "Alice",
         "mark": 9.75
@@ -87,10 +87,10 @@ bob_mark: float | None = None
 last_student_name: str | None = None
 
 # TODO Cambia, aquí debajo, la nota de "Alice" por un 9.0.
-students_info[0]["mark"] = None
+students_info[0]["mark"] | None = None
 
 # TODO Cambia, aquí debajo, el nombre de "Bob" por "Bo Bob".
-students_info[1]["name"] = None
+students_info[1]["name"] | None = None
 
 # TODO Añade un alumno/a más con el nombre de "Jon" y la nota de 8.0.
 

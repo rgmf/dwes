@@ -29,7 +29,7 @@ second_capital: str | None = capitals[countries[1]]
 
 # A continuación tienes un diccionario con las temperaturas máximas y mínimas
 # de la última semana (inventadas, claro está).
-weather: dict[str, list[int, int]] = {
+weather: dict[str, list[int]] = {
     "lunes": [30, 25],
     "martes": [33, 24],
     "miercoles": [29, 24],
@@ -69,7 +69,7 @@ friday_min: int | None = weather_hf["viernes"].min
 
 # Aquí tienes una lista de diccionarios en el que se tiene el alumnado con una
 # nota o calificación.
-students_info: list[dict[str, float]] = [
+students_info: list[dict[str, str | float]] = [
     {
         "name": "Alice",
         "mark": 9.75
@@ -85,10 +85,10 @@ students_info: list[dict[str, float]] = [
 ]
 
 # TODO Guarda en la siguiente variable la nota de "Bob".
-bob_mark: float | None = students_info[1]["mark"]
+bob_mark: float = students_info[1]["mark"]
 
 # TODO Guarda en la siguiente variable el nombre del último alumno/a.
-last_student_name: str | None = students_info[-1]["name"]
+last_student_name: str = students_info[-1]["name"]
 
 # TODO Cambia, aquí debajo, la nota de "Alice" por un 9.0.
 students_info[0]["mark"] = 9.0

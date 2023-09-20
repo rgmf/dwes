@@ -21,7 +21,7 @@ for _ in range(10):
 
 # TODO suma los dos números más pequeños de random_nums y guarda el resultado
 # de esta suma en la siguiente variable.
-larger_num, second_larger_num, *_ = sorted(random_nums, reverse=True)
+larger_num, second_larger_num, *_ = sorted(random_nums)
 addition_large_nums: int = larger_num + second_larger_num
 
 

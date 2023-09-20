@@ -38,8 +38,7 @@ Location = namedtuple("Location", ["lat", "lon", "altitude", "distance"])  # cam
 locations: list[Location] | None = [
     Location(1, 1, 1, 1),
     Location(2, 2, 2, 2),
-    Location(3, 3, 3, 3),
-    Location(4, 4, 4, 4)
+    Location(3, 3, 3, 3)
 ]
 
 # TODO asigna a la siguinete variable la `altitude` del tercer `Location` de la

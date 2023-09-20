@@ -15,7 +15,7 @@ upper_vowels = ("A", "E", "I", "O", "U")
 
 # TODO cambia el valor de la siguiente variable para que contenga la cuarta
 #      vocal de `vowels`.
-forth_vowel: str | None = None
+forth_vowel: str = vowels[3]
 
 # TODO cambia el valor de la variable siguiente para que sea una tupla con los
 #      elementos de `vowels` y `upper_vowels`.

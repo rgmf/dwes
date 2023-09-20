@@ -8,5 +8,5 @@ def test_tuple():
     assert all_vowels == ("a", "e", "i", "o", "u", "A", "E", "I", "O", "U")
     assert len([v for v in too_true if v]) == 100
     assert not has_false
-    assert len([loc for loc in locations if isinstance(loc, Location)]) == 4
+    assert len([loc for loc in locations if isinstance(loc, Location)]) == 3
     assert altitude == locations[2].altitude

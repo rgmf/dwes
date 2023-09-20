@@ -6,7 +6,7 @@ from ..flow_control import (
 
 def test_flow_control():
     assert len(random_nums) == 10
-    assert addition_large_nums == sum(sorted(random_nums, reverse=True)[:2])
+    assert addition_large_nums == sum(sorted(random_nums)[:2])
     assert addition == sum(random_nums)
     assert avg_grades == (6.75 + 7.25 + 8.5 + 3.75) / 4
     assert info_best_student == "Mary ha obtenido la nota más alta: 8.5."

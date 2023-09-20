@@ -16,7 +16,7 @@ print(len(nums))
 
 # Para acceder al último elemento de una lista.
 # El modo no "pythonic".
-print(nums[len(nums) -1])
+print(nums[len(nums) - 1])
 
 # Es muy feo. Usemos el modo "pythonic".
 # En Python podemos usar índices negativos para recorrer la lista al revés.
