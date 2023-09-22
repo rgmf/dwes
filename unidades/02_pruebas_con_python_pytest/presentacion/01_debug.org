@@ -9,6 +9,9 @@
 ** Pruebas manuales
 ** Pruebas automáticas
 
+
+
+
 * Depuración
 Varias opciones para depurar programas en Python:
 ** print... todo el mundo lo usa
@@ -17,12 +20,14 @@ Varias opciones para depurar programas en Python:
 *** IPython es el Kernel de Jupyter
 ** Herramientas depuración de IDEs como PyCharm o VSCode
 
+
 * Print para depurar
 #+begin_src python
   print(">>>>>>>>>>>>>>>> Start: inside foo function")
   ...
   print("<<<<<<<<<<<<<<<< End: inside foo function")
 #+end_src
+
 
 * Uso de pdb para depurar
 ** Uso simple: pdb.set_trace()
@@ -116,6 +121,76 @@ Un resumen básico:
 - l :: muestra 11 líneas de código alrededor de la línea actual
 - q :: para salir del depurador
 
+
+
+
+
+* Uso de IPython para depurar
+** ¿Qué es IPython?
+- Es un REPL (intérprete) muy popular
+- Lo tienes que instalar
+- Se ejecuta como ejecutamos el intérprete de Python estándar
+
+#+begin_src bash
+  $ ipython
+  
+  Python 3.11.5 (main, Sep  2 2023, 14:16:33) [GCC 13.2.1 20230801]
+  Type 'copyright', 'credits' or 'license' for more information
+  IPython 8.15.0 -- An enhanced Interactive Python. Type '?' for help.
+
+  In [1]:
+#+end_src
+
+** Ver estado del programa en un punto
+Usamos ~embed()~ para detener el programa en ese punto.
+Al ejecutar el programa, cuando se encuentre el ~embed()~ abre IPython y puedes inspeccionar variables, etc.
+
+#+begin_src python
+  from IPython import embed; embed()
+#+end_src
+
+Por ejemplo:
+
+#+begin_src python
+  a = 10
+  b = 15
+
+  from IPython import embed; embed()
+
+  print(f"a+b = {a+b}")
+#+end_src
+
+** Depurar desde IPython
+Entra al intérprete IPython para ejecutar **magic commands**.
+
+- Este **magic command** ejecuta el script ~main.py~ poniendo un breakpoint en la primera línea:
+
+#+begin_src ipython
+  %run -d main.py
+#+end_src
+
+- Este **magic command** ejecuta el script ~main.py~ poniendo un breakpoint en la línea 42:
+
+#+begin_src ipython
+  %run -d -b42 main.py
+#+end_src
+
+- Este **magin command** activa el lanzamiento del depurador si se lanza una excepción no controlada en el programa que ejecutes:
+
+#+begin_src ipython
+  %pdb
+  %run main.py
+#+end_src
+
+
+
+
+* Ninja Training
+[[./img/python_ninja.png]]
+
+Ninja Training
+
+01_debugging
 
 * Referencias
 - PDB: [[El depurador de Python][https://docs.python.org/es/3/library/pdb.html]]
