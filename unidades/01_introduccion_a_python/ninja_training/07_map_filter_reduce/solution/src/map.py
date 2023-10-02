@@ -14,8 +14,8 @@ from math import floor
 #      lista de números enteros y un número entero. Esta función devolverá una
 #      nueva lista con la suma del número entero y los elementos de la lista.
 #      Por ejemplo: si recibe como parámetro:
-#      [1, 2, 3, 4, 5]
-#      15
+#      - como lista: [1, 2, 3, 4, 5]
+#      - como número entero: 15
 #
 #      Devolvería:
 #      [16, 17, 18, 19, 20]
