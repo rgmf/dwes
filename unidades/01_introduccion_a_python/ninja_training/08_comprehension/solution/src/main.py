@@ -34,7 +34,7 @@ def only_letters(string: str) -> list[str]:
 
 
 # TODO Escribe una función llamada `random_number` que reciba una lista de
-#      nombres de personas y asigne un número al azar entre 1 y 10a cada uno
+#      nombres de personas y asigne un número al azar entre 1 y 10 a cada uno
 #      de ellos, devolviendo un diccionario con esta información.
 #
 #      Por ejemplo, dado este listado de nombres:
@@ -62,7 +62,7 @@ def assign_numbers(people: list[str]) -> dict[str, int]:
 
 # TODO Escribe una función `accum_game` que devuelva la suma de las
 #      puntuaciones de un juego.
-#      
+#
 #      Esta función recibirá un diccionario como este:
 #      {"Alice": 77, "Bob": 85, "Mary": 37, "Jon": 45}
 #
