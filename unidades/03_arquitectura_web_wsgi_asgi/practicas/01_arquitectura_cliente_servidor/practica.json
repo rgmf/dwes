@@ -1,0 +1,58 @@
+[
+    {
+        "pregunta": "¿Qué arquitectura se usa en el desarrollo web?",
+        "respuesta": ""
+    },
+    {
+        "pregunta": "¿Qué es Internet?",
+        "respuesta": ""
+    },
+    {
+        "pregunta": "¿A qué llamamos Web?",
+        "respuesta": ""
+    },
+    {
+        "pregunta": "¿Qué otros nombres recibe la Web?",
+        "respuesta": ""
+    },
+    {
+        "pregunta": "En la arquitectura que se emplea en la Web, ¿qué actor se encarga de hacer el request?",
+        "respuesta": ""
+    },
+    {
+        "pregunta": "En la arquitectura que se emplea en la Web, ¿qué actor se encarga de hacer el response?",
+        "respuesta": ""
+    },
+    {
+        "pregunta": "¿En qué formato suelen ser las respuestas de los servidores web?",
+        "respuesta": ""
+    },
+    {
+        "pregunta": "¿Quién se encarga de los estándares en Internet?",
+        "respuesta": ""
+    },
+    {
+        "pregunta": "¿Quién es el encargado de los estándares en la Web?",
+        "respuesta": ""
+    },
+    {
+        "pregunta": "¿Qué versión de HTTP te devuelve el servidor al solicitar el recurso http://baeldung.com?",
+        "respuesta": ""
+    },
+    {
+        "pregunta": "¿Qué código de estado te devuelve el servidor al solicitar el recurso http://baeldung.com?",
+        "respuesta": ""
+    },
+    {
+        "pregunta": "¿Qué versión de HTTP te devuelve el servidor al solicitar el recurso https://www.ieslaencanta.com?",
+        "respuesta": ""
+    },
+    {
+        "pregunta": "¿Qué código de estado te devuelve el servidor al solicitar el recurso http://ieslaencanta.com?",
+        "respuesta": ""
+    },
+    {
+        "pregunta": "Realiza un petición con cURL al recurso https://www.ieslaencanta.com inyectando la cabecera User-Agent con valor MiNavegadorWeb y la cabecera accept con valor text/html.",
+        "respuesta": "No respondas, haz la captura y guárdala en el mismo repositorio que este fichero."
+    }
+]
