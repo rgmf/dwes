@@ -32,7 +32,7 @@ En esta práctica tienes que desarrollar el juego del Ahorcado (Hangman en ingl�
 ## ¿Cómo debe funcionar el juego?
 El juego es un Ahorcado en solitario. Solo un jugador intentando adivinar frases con sus 6 oportunidades:
 
-1. Lo primero que tiene que hacer tu programa es cargar una frase de forma aleatoria en el fichero `assets/sentences.txt`
+1. Lo primero que tiene que hacer tu programa es cargar una frase de forma aleatoria del fichero `assets/sentences.txt`
    - Esta es la frase que el usuario tiene que adivinar
 2. Al comenzar el juego aparece la horca vacía, la frase enmascarada y el prompt esperando una letra
    - El programa tiene que asegurarse que el usuario escribe una letra y solo una letra
@@ -46,8 +46,8 @@ El juego es un Ahorcado en solitario. Solo un jugador intentando adivinar frases
    - Si quiere adivinarla y falla entonces se suma un intento y se actualiza la horca además de indicarlo en el panel de información
    - Si quiere adivinarla y, efectivamente, la adivina entonces se acaba el juego indicando al usuario que ha ganado
 7. El juego acaba si:
-   - No quedan más letras que desenmascarar: gana el usaurio
-   - No lo quedan más intentos: pierde el usuario
+   - No quedan más letras que desenmascarar: gana el usuario
+   - No quedan más intentos: pierde el usuario
    - Como se indicó arriba, el usuario pide adivinar la frase y lo hace: gana el usuario
 
 # Entorno virtual
@@ -79,16 +79,36 @@ En los siguientes apartados te explico cómo usar este módulo para dibujar lo q
 Para mostrar mensajes para informar al usuario de lo que quieras usa la función `ui_show_info`.
 
 ## Mostrar la pista (frase enmascarada con letras acertadas)
-Usa la función `ui_hint`.
+Usa la función `ui_hint`:
+
+``` python
+def ui_hint(hint: src) -> None
+```
+
+Esta función recibe un string con la pista que muestra en el lugar adecuado de la UI.
 
 ## Dibujar la horca
 Usa la función `ui_gallow` a la que, tan solo, tienes que indicar el número de intentos gastados por el usuario.
 
+``` python
+def ui_gallow(attempt: int) -> None
+```
+
 ## Mostrar las letras usadas
 Usa la función `ui_letters` indicando, en una lista, los caracteres ya utilizados.
 
+``` python
+def ui_letters(letters: list[str]) -> None
+```
+
 ## Preguntar lo que quieras al usuario
 Usa la funcion `ui_ask`, pásale la pregunta y obtendrás la respuesta.
+
+``` python
+def ui_ask(question: str) -> str
+```
+
+Esta función muestra la pregunta al usuario en la zona del *prompt* y espera que el usuario escriba algo. Como ves, esta función devuelve lo que el usuario haya escrito.
 
 ## Mostrar resultado del juego al usuario
 Tienes tres funciones:
