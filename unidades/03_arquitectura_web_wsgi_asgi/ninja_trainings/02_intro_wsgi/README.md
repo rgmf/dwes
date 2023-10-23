@@ -26,7 +26,7 @@ La versión `b_server.py` es similar a `a_server.py` en el que el único cambio 
 
 Para ponerlo en marcha: `gunicorn b_server:app -b localhost:8000`.
 
-# Habitual es recibir "query parameters"
+# Los "query parameters"
 En la versión `c_server.py` puedes ver cómo obtenemos los **query parameters** que los clientes web envían.
 
 Estas **query parameters** nos llegan a través del parámetro `environ` de la aplicación. En el código está documentado.
@@ -37,5 +37,29 @@ Por cierto, si quieres "printear cosas" para ver/depurar partes del código en l
 $ gunicorn --capture-output -b localhost:8000 c_server:app
 ```
 
-# ¡Qué pesadilla!, ¡cada vez que hago cambios tengo que parar y arrancar Gunicorn!
-Sí, pero puedes usar la opción `--reload` si quieres que lo haga él automáticamente. Esta es una opción que **no debes usar en producción**, solo en el entorno de desarrollo.
+¡Qué pesadilla!, ¡cada vez que hago cambios tengo que parar y arrancar Gunicorn! Sí, pero puedes usar la opción `--reload` si quieres que lo haga él automáticamente. Esta es una opción que **no debes usar en producción**, solo en el entorno de desarrollo.
+
+``` shell
+$ gunicorn --capture-output -b localhost:8000 c_server:app
+```
+
+# Parseando y tratando los "query parameters"
+En `d_server.py` tienes una aplicación web que espera dos números por **query parameters** llamados `num1` y `num2` y los suma, mostrando el resultado en una página web.
+
+# Bad Request
+En el `d_server.py` anterior hay que retocar el código para comprobar que llegan, efectivamente, dos números. Así, pueden pasar dos cosas:
+
+1. Llegan los números, así que enviamos la respuesta con código 200 porque todo fue bien.
+2. Hay errores en los "query parameters" y, como no llega lo que esperamos, significa que la petición es incorrecta. Tendemos que enviar una respuesta con un 401 de "Bad Request".
+
+# Tus primeras horas de vuelo
+Escribe un nuevo programa llamado `e_my_server.py` que reciba un nombre en un "query parameter" llamado `name` y te salude.
+
+Si no llegara el `name` en el "query parameter" entonces devuelve un **Bad Request** (con código 401).
+
+En el *script* `e_server.py` tienes la solución.
+
+# Juntos pero no revueltos: separando vista (HTML) de lógica (Python)
+Veamos, en el script `f_server.py`, cómo separar las vistas o el HTML de la lógica o el código Python.
+
+El "truco" es sencillo: dado que los ficheros HTML son ficheros de texto, vamos a abrilos desde Python y ponemos todo el contenido del HTML en un string de Python para enviarlo como respuesta.
