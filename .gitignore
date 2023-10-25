@@ -7,3 +7,4 @@ venv/
 *.org
 __pycache__/
 .~lock*
+**/venv/

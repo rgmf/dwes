@@ -52,14 +52,11 @@ En el `d_server.py` anterior hay que retocar el código para comprobar que llega
 1. Llegan los números, así que enviamos la respuesta con código 200 porque todo fue bien.
 2. Hay errores en los "query parameters" y, como no llega lo que esperamos, significa que la petición es incorrecta. Tendemos que enviar una respuesta con un 401 de "Bad Request".
 
+Lo tienes hecho en el `e_server.py`. Lee el código y trata de entenderlo.
+
 # Tus primeras horas de vuelo
-Escribe un nuevo programa llamado `e_my_server.py` que reciba un nombre en un "query parameter" llamado `name` y te salude.
+Escribe un nuevo programa llamado `f_my_server.py` que reciba un nombre en un "query parameter" llamado `name` y te salude.
 
 Si no llegara el `name` en el "query parameter" entonces devuelve un **Bad Request** (con código 401).
 
-En el *script* `e_server.py` tienes la solución.
-
-# Juntos pero no revueltos: separando vista (HTML) de lógica (Python)
-Veamos, en el script `f_server.py`, cómo separar las vistas o el HTML de la lógica o el código Python.
-
-El "truco" es sencillo: dado que los ficheros HTML son ficheros de texto, vamos a abrilos desde Python y ponemos todo el contenido del HTML en un string de Python para enviarlo como respuesta.
+En el *script* `f_server.py` tienes la solución.
