@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>README.html</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+</head>
+
+<body>
+
+<h1 id="antes-de-comenzar">Antes de comenzar</h1>
+<p>Estos son los requisitos generales que debes cumplir:</p>
+<ul>
+<li>Usar las PEP-8 cuando escribas tu código en Python.</li>
+<li>Los ficheros HTML no se modificarán, a menos que se diga lo
+contrario.</li>
+<li>Si en el enunciado se indica, explícitamente, que se modifique un
+HTML, se hará siguiendo escrupulosamente este enunciado.</li>
+<li>No dejes <code>print</code>s en tu código y asegúrate que, antes de
+entregar, eliminas todo código que uses a modo de depuración y
+prueba.</li>
+<li>Todo código sospechoso de haber sido copiado/pegado, “chagpteado”,
+etc, llevará al alumnado al procedimiento de “prueba de
+autenticidad”.</li>
+</ul>
+<p>Esta práctica la vas a desarrollar por hitos. Cada hito logrado
+supondrá una nota máxima que se indicará en este enunciado. Se corregirá
+hasta el hito al que hayas llegado. Además, indicaré cuántas horas
+asignadas a clase tiene caca hito.</p>
+<h1 id="descripción-de-la-práctica-en-general">Descripción de la
+práctica en general</h1>
+<p>En esta práctica desarrollarás una aplicación web con Python,
+siguiendo la especificación WSGI como hemos estado estudiando en clase
+estas últimas semanas.</p>
+<p>Esta aplicación tiene una serie de páginas que generará el programa
+Python a desarrollar en la que todo gira en torno a la elaboración de
+quinielas aleatorias de una competición de fútbol ficticia en la que
+participan 10 equipos.</p>
+<h1
+id="descripción-del-proyecto-a-completar-que-te-proporciono">Descripción
+del proyecto a completar que te proporciono</h1>
+<p>Para el desarrollo de esta práctica te proporciono el siguiente
+proyecto a completar:</p>
+<pre class="shell"><code>random_bet_list
+├── README.md
+├── requirements.txt
+├── requirements_windows.txt
+├── src
+│   ├── models
+│   │   └── data.py
+│   └── views
+│       ├── gamedays.html
+│       ├── index.html
+│       └── randombetlist.html</code></pre>
+<p>El proyecto se llama <code>random_bet_list</code> y tienes, justo en
+al raíz de ese directorio, los ficheros:</p>
+<ul>
+<li><code>README.md</code> que este este mismo fichero que estás
+leyendo.</li>
+<li><code>requirements.txt</code>, el fichero con los requisitos si usas
+MacOs o GNU/Linux.</li>
+<li><code>requirements_windows.txt</code>, el fichero con los requisitos
+si usas Windows.</li>
+</ul>
+<p>Ahí verás, también, la carpeta <code>src</code> que es el paquete
+principal del programa donde irá todo el código que tengas que escribir.
+Ahí dentro puedes crear todo lo que necesites.</p>
+<p>Como ves, dentro de <code>src</code> ya te he dejado todos los HTML
+que vas a necesitar. También tienes en <code>models/data.py</code> una
+lista de diccionarios donde se describen las jornadas.</p>
+<h1 id="hito-1-hasta-6-puntos---2-horas-de-clase">Hito 1: hasta 6 puntos
+- 2 horas de clase</h1>
+<p>Para este primer hito, tienes que escribir el programa del servidor
+para responder a los siguientes <em>paths</em>:</p>
+<h2 id="home"><code>/home</code></h2>
+<p>Para servir la página <code>index.html</code> que ves dentro de la
+carpeta <code>views</code>. Es una página completa, sin
+<em>placeholders</em>, lista para servir directamente.</p>
+<h2 id="gamedays"><code>/gamedays</code></h2>
+<p>Para servir la plantilla <code>gamedays.html</code> que ves dentro de
+la carpeta <code>views</code>. Aquí, tendrás que inyectar la lista de
+las jornadas que se pueden extraer de la lista <code>GAMEDAYS</code> que
+tienes en <code>models/data.py</code>. Al final, tendrás que elaborar,
+un listado HTML como este:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;ul&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li&gt;</span>Jornada 1<span class="kw">&lt;/li&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li&gt;</span>Jornada 2<span class="kw">&lt;/li&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li&gt;</span>Jornada 3<span class="kw">&lt;/li&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/ul&gt;</span></span></code></pre></div>
+<p>Que inyectarás en el <em>placeholder</em>
+<strong>{gamedays_list}</strong> que puedes ver en dicha plantilla.</p>
+<p>Esos números de jornadas se pueden extraer de la lista de
+diccionarios <code>GAMEDAYS</code>. Analízalo.</p>
+<h2 id="randombetlist"><code>/randombetlist</code></h2>
+<p>Para servir la página <code>randombetlist.html</code> que ves dentro
+de la carpeta <code>views</code>. Aquí, tendrás que inyectar la
+información de los partidos de la última jornada con información de los
+resultados que generarás al azar. ¿De dónde sale esta información? De la
+lista de diccionarios <code>GAMEDAYS</code>. Analízalo.</p>
+<p>Si te fijas en la plantilla <code>randombetlist.html</code>, dentro
+del <code>main</code>, hay un <code>section</code>, dentro del cual hay
+un <code>article</code> con este contenido:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;h2&gt;</span>Quiniela aleatoria generada para la jornada {gameday_number}<span class="kw">&lt;/h2&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;table&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;tr&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;th&gt;</span>Local<span class="kw">&lt;/th&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;th&gt;</span>Visitante<span class="kw">&lt;/th&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;th&gt;</span>Pronóstico<span class="kw">&lt;/th&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/tr&gt;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;tr&gt;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    {game1}</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/tr&gt;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;tr&gt;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    {game2}</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/tr&gt;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;tr&gt;</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    {game3}</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/tr&gt;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;tr&gt;</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    {game4}</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/tr&gt;</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;tr&gt;</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    {game5}</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/tr&gt;</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/table&gt;</span></span></code></pre></div>
+<p>En el, como puedes ver, tienes que inyectar bastantes cosas en estos
+<em>placeholders</em>:</p>
+<ul>
+<li><code>gameday_number</code>: el número de la jornada (en este caso
+la última) que sacarás de <code>GAMEDAYS</code>.</li>
+<li><code>game1</code>, <code>game2</code>, <code>game3</code>,
+<code>game4</code> y <code>game5</code>: en cada uno de estos
+<em>placeholders</em> tienes que inyectar la información del partido en
+cuestión. Lo que, al final inyectarás aquí se parecerá a esto:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;td&gt;</span>Atlético de Madrid<span class="kw">&lt;/td&gt;&lt;td&gt;</span>Osasuna<span class="kw">&lt;/td&gt;&lt;td&gt;</span>X<span class="kw">&lt;/td&gt;</span></span></code></pre></div>
+<p>El nombre de los equipos lo sacas de la jornada en concreto de
+<code>GAMEDAYS</code> y la <strong>X</strong> se generará al azar. Donde
+pone <strong>X</strong> puede aparecer una de estas opciones:</p>
+<ul>
+<li><strong>1</strong>: gana el equipo local.</li>
+<li><strong>2</strong>: gana el equipo visitante.</li>
+<li><strong>X</strong>: empatan.</li>
+</ul>
+<h1 id="hito-2-hasta-8-puntos---2-horas-de-clase">Hito 2: hasta 8 puntos
+- 2 horas de clase</h1>
+<p>En esta parte vas a crear enlaces en el listado de jornadas.</p>
+<p>Estos enlaces solicitarán el recurso que te explico en el siguiente
+apartado, y que mostrará una página en HTML con la lista de partidos de
+dicha jornada.</p>
+<p>Para realizar este hito puedes (y debes) crear los HTML que creas
+oportuno y necesites. Te recomiendo que copies y pegues los estilos de
+los HTML actualmente creados para que los estilos se mantengan uniformes
+aunque <strong>no voy a considerar el estilo</strong> para la corrección
+de la práctica.</p>
+<h1 id="gamedaysnnumero"><code>/gamedays/?n=&lt;numero&gt;</code></h1>
+<p>Como ves, el recurso, en cuanto al <strong>Path Parameter</strong> es
+el mismo que muestra la lista de jornadas pero con un <strong>Query
+Parameter</strong>, llamado <code>n</code>, en el que se indica el
+número de jornada que se quiere ver.</p>
+<p>Así pues, si nos llega el <strong>Path</strong>
+<code>/gamedays</code> entonces se mostrará el listado de jornadas con
+enlaces para ver la jornada en cuestión:</p>
+<figure>
+<img src="img/gamedays.png"
+alt="Caputura de pantalla con información de una jornada" />
+<figcaption aria-hidden="true">Caputura de pantalla con información de
+una jornada</figcaption>
+</figure>
+<p>Y si nos llega el mismo <strong>Path</strong> pero con el
+<strong>Query Parameter</strong> <code>n</code> entonces se mostrará, en
+una tabla, la jornada. Por ejemplo, si nos llega
+<code>/gamedays/?n=10</code> se mostrará una página como esta:</p>
+<figure>
+<img src="img/gameday_10.png"
+alt="Caputura de pantalla con información de una jornada" />
+<figcaption aria-hidden="true">Caputura de pantalla con información de
+una jornada</figcaption>
+</figure>
+
+</body>
+</html>

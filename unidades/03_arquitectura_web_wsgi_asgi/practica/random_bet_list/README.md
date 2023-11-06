@@ -108,3 +108,21 @@ El nombre de los equipos lo sacas de la jornada en concreto de `GAMEDAYS` y la *
 - **1**: gana el equipo local.
 - **2**: gana el equipo visitante.
 - **X**: empatan.
+
+# Hito 2: hasta 8 puntos - 2 horas de clase
+En esta parte vas a crear enlaces en el listado de jornadas.
+
+Estos enlaces solicitarán el recurso que te explico en el siguiente apartado, y que mostrará una página en HTML con la lista de partidos de dicha jornada.
+
+Para realizar este hito puedes (y debes) crear los HTML que creas oportuno y necesites. Te recomiendo que copies y pegues los estilos de los HTML actualmente creados para que los estilos se mantengan uniformes aunque **no voy a considerar el estilo** para la corrección de la práctica.
+
+# `/gamedays/?n=<numero>`
+Como ves, el recurso, en cuanto al **Path Parameter** es el mismo que muestra la lista de jornadas pero con un **Query Parameter**, llamado `n`, en el que se indica el número de jornada que se quiere ver.
+
+Así pues, si nos llega el **Path** `/gamedays` entonces se mostrará el listado de jornadas con enlaces para ver la jornada en cuestión:
+
+![Caputura de pantalla con información de una jornada](img/gamedays.png)
+
+Y si nos llega el mismo **Path** pero con el **Query Parameter** `n` entonces se mostrará, en una tabla, la jornada. Por ejemplo, si nos llega `/gamedays/?n=10` se mostrará una página como esta:
+
+![Caputura de pantalla con información de una jornada](img/gameday_10.png)
