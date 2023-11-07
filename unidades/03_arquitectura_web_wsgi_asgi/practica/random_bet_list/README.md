@@ -126,3 +126,31 @@ Así pues, si nos llega el **Path** `/gamedays` entonces se mostrará el listado
 Y si nos llega el mismo **Path** pero con el **Query Parameter** `n` entonces se mostrará, en una tabla, la jornada. Por ejemplo, si nos llega `/gamedays/?n=10` se mostrará una página como esta:
 
 ![Caputura de pantalla con información de una jornada](img/gameday_10.png)
+
+Como siempre que recibimos un **Query Parameter** tendrás que validar que el valor que tiene es el esperado, en este caso: un número que esté dentro del rango del número de jornadas (es decir, el número de elementos de la lista `GAMEDAYS`). En otro caso, tendrás que enviar un error al usuario, que podría ser la página `404.html`.
+
+# Hito 3: hasta 10 puntos - 2 horas de clase
+Para completar este hito se han añadido algunas novedades en `models/data.py`:
+
+- `GAMEDAYS` ha cambiado: ahora se indica si se jogó o no la jornada.
+
+- Hay una nueva constante con la lista de partidos y los resultados. Se llama `SCOREBOARDS` y, como ves en el código, se generan los resultados al azar. Están todos los resultados, incluso la de los partidos que no se han jugado... Es raro... Es imposible... Lo sé... Pero dado que no tenemos manera de guardar datos en ningún sitio, esta va a ser la manera de poder resolver uno de los puntos que vienen a continuación.
+
+- En vez de generar la quiniela de la última jornada, ahora tienes que generar la primera jornada que no se ha jugado. ¿Cómo sabes si se ha jugado o no una jornada? Vuelve a leer el primer punto de este apartado.
+  - Si no hay jornadas por jugar se manda a otra página web en la que se indica que no quedan jornadas por jugar.
+  
+- En la misma página donde se ha generado la quiniela tienes que añadir un enlace que ponga algo así como **"Comprobar quiniela"** que te llevará a una página en la que se mostrará el número de aciertos de dicha quiniela. ¿Cómo sabes los aciertos de la quiniela? Para eso está `SCOREBOARDS`, donde puedes ver cómo han quedado todos los partidos de todas las jornadas, incluso los partidos del futuro :D Para lograr este apartado tendrás que buscar la manera de pasar vía **Query Parameters** toda la información de la quiniela y poder comprobar la quiniela con los resultados.
+
+Puedes añadir todos los HTML que necesites y quieras. También tendrás que idear un nuevo **Path** para comprobar la quiniela. Cuando se pasen **Query Parameters** tendrás que validar que todo sea correcto.
+
+Al final de la práctica, estas son las rutas, paths o recursos que se tienen:
+
+- `/home`
+- `/gamedays`
+- `/gamedays/?n=<número de jornada>`
+- `/randombetlist`
+- `/randombetlist/check/<query string que quieras/necesites>`
+
+Te dejo, a continuación, una captura de pantalla donde aparece la página web con el resultado de la quiniela aleatoria. Como ves se indica todo: partidos, apuesta, resultado y si se ha acertado o no:
+
+![Caputura de pantalla con los aciertos de la quiniela](img/picks.png)
