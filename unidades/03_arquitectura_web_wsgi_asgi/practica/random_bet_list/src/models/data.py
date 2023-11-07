@@ -1,6 +1,10 @@
-GAMEDAYS = [
+from random import randint
+
+
+GAMEDAYS: list[dict[str, any]] = [
     {
         "gameday": 1,
+        "played": True,
         "games": [
             {"team1": "Atlético de Madrid", "team2": "Osasuna"},
             {"team1": "Villarreal", "team2": "Valencia"},
@@ -11,6 +15,7 @@ GAMEDAYS = [
     },
     {
         "gameday": 2,
+        "played": True,
         "games": [
             {"team1": "Osasuna", "team2": "Villarreal"},
             {"team1": "Valencia", "team2": "Athlétic de Bilbao"},
@@ -21,6 +26,7 @@ GAMEDAYS = [
     },
     {
         "gameday": 3,
+        "played": True,
         "games": [
             {"team1": "Atlético de Madrid", "team2": "Villarreal"},
             {"team1": "Osasuna", "team2": "Valencia"},
@@ -31,6 +37,7 @@ GAMEDAYS = [
     },
     {
         "gameday": 4,
+        "played": True,
         "games": [
             {"team1": "Villarreal", "team2": "FC Barcelona"},
             {"team1": "Valencia", "team2": "Sevilla FC"},
@@ -41,6 +48,7 @@ GAMEDAYS = [
     },
     {
         "gameday": 5,
+        "played": False,
         "games": [
             {"team1": "Atlético de Madrid", "team2": "Valencia"},
             {"team1": "Villarreal", "team2": "Sevilla FC"},
@@ -51,6 +59,7 @@ GAMEDAYS = [
     },
     {
         "gameday": 6,
+        "played": False,
         "games": [
             {"team1": "Valencia", "team2": "Real Madrid"},
             {"team1": "Sevilla FC", "team2": "Celta de Vigo"},
@@ -61,6 +70,7 @@ GAMEDAYS = [
     },
     {
         "gameday": 7,
+        "played": False,
         "games": [
             {"team1": "Atlético de Madrid", "team2": "Valencia"},
             {"team1": "Villarreal", "team2": "Real Madrid"},
@@ -71,6 +81,7 @@ GAMEDAYS = [
     },
     {
         "gameday": 8,
+        "played": False,
         "games": [
             {"team1": "Valencia", "team2": "Sevilla FC"},
             {"team1": "Real Madrid", "team2": "Celta de Vigo"},
@@ -81,6 +92,7 @@ GAMEDAYS = [
     },
     {
         "gameday": 9,
+        "played": False,
         "games": [
             {"team1": "Atlético de Madrid", "team2": "Real Sociedad"},
             {"team1": "Villarreal", "team2": "Celta de Vigo"},
@@ -91,6 +103,7 @@ GAMEDAYS = [
     },
     {
         "gameday": 10,
+        "played": False,
         "games": [
             {"team1": "Osasuna", "team2": "Atletico de Madrid"},
             {"team1": "Valencia", "team2": "Villarreal"},
@@ -101,6 +114,7 @@ GAMEDAYS = [
     },
     {
         "gameday": 11,
+        "played": False,
         "games": [
             {"team1": "Villarreal", "team2": "Atletico de Madrid"},
             {"team1": "Athletic de Bilbao", "team2": "Osasuna"},
@@ -111,6 +125,7 @@ GAMEDAYS = [
     },
     {
         "gameday": 12,
+        "played": False,
         "games": [
             {"team1": "Villarreal", "team2": "Atletico de Madrid"},
             {"team1": "Valencia", "team2": "Osasuna"},
@@ -121,6 +136,7 @@ GAMEDAYS = [
     },
     {
         "gameday": 13,
+        "played": False,
         "games": [
             {"team1": "FC Barcelona", "team2": "Villarreal"},
             {"team1": "Sevilla FC", "team2": "Valencia"},
@@ -131,6 +147,7 @@ GAMEDAYS = [
     },
     {
         "gameday": 14,
+        "played": False,
         "games": [
             {"team1": "Valencia", "team2": "Atletico de Madrid"},
             {"team1": "Sevilla FC", "team2": "Villarreal"},
@@ -141,6 +158,7 @@ GAMEDAYS = [
     },
     {
         "gameday": 15,
+        "played": False,
         "games": [
             {"team1": "Real Madrid", "team2": "Valencia"},
             {"team1": "Celta de Vigo", "team2": "Sevilla FC"},
@@ -151,6 +169,7 @@ GAMEDAYS = [
     },
     {
         "gameday": 16,
+        "played": False,
         "games": [
             {"team1": "Valencia", "team2": "Atletico de Madrid"},
             {"team1": "Real Madrid", "team2": "Villarreal"},
@@ -161,6 +180,7 @@ GAMEDAYS = [
     },
     {
         "gameday": 17,
+        "played": False,
         "games": [
             {"team1": "Sevilla FC", "team2": "Valencia"},
             {"team1": "Celta de Vigo", "team2": "Real Madrid"},
@@ -171,6 +191,7 @@ GAMEDAYS = [
     },
     {
         "gameday": 18,
+        "played": False,
         "games": [
             {"team1": "Real Sociedad", "team2": "Atletico de Madrid"},
             {"team1": "Celta de Vigo", "team2": "Villarreal"},
@@ -179,4 +200,19 @@ GAMEDAYS = [
             {"team1": "Sevilla FC", "team2": "Valencia"}
         ]
     }
+]
+
+
+SCOREBOARDS = [
+    {
+        "gameday": i + 1,
+        "scoreboard": [
+            (randint(0, 3), randint(0, 3)),
+            (randint(0, 3), randint(0, 3)),
+            (randint(0, 3), randint(0, 3)),
+            (randint(0, 3), randint(0, 3)),
+            (randint(0, 3), randint(0, 3))
+        ]
+    }
+    for i in range(len(GAMEDAYS))
 ]
