@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formularios</title>
+  </head>
+  <body>
+    <h1>Formulario</h1>
+
+    <form action="/contact" method="post">
+      <p>
+	Usuario: <input type="text" name="username" value="{username}"><br>
+	<span style="color: red;">{username_error}</span>
+      </p>
+      <p>
+	Contraseña: <input type="password" name="password" value="{password}"><br>
+	<span style="color: red;">{password_error}</span>
+      </p>
+      <p>
+	Correo electrónico: <input type="email" name="email" value="{email}"><br>
+	<span style="color: red;">{email_error}</span>
+      </p>
+      <p>
+	Fecha de nacimiento: <input type="date" name="birthdate" value="{birthdate}"><br>
+	<span style="color: red;">{birthdate_error}</span>
+      </p>
+      <p>
+	Escribe lo que quieras: <textarea rows="5" cols="80" name="comment">{comment}</textarea><br>
+	<span style="color: red;">{comment_error}</span>
+      </p>
+
+      <p>
+	<input type="submit" value="Enviar">
+      </p>
+    </form>
+  </body>
+</html>

@@ -9,7 +9,7 @@ def home() -> str:
     return render_template("src/views/index.html")
 
 
-def form_username(environ: dict[str, list[str]]) -> str:
+def form_contact(environ: dict[str, list[str]]) -> str:
     # Método por el que nos han enviado el formulario.
     method: str = environ.get("REQUEST_METHOD", "").upper()
 
@@ -32,43 +32,52 @@ def form_username(environ: dict[str, list[str]]) -> str:
 
 
 def compute_form(form: dict[str, str]) -> str:
-    # Si no está el campo "username" es porque no se ha enviado el formulario.
-    # Dicho de otro modo: es la primera vez que se carga el formulario.
-    # Así que lo enviamos vacío, por primera vez.
-    if "username" not in form:
+    all_fields: list[str] = ["username", "password", "email", "birthdate", "comment"]
+
+    # Si faltan campos hay que enviar el formulario vacío porque "algo raro"
+    # ha pasado o es la primera vez que se solcita el formulario.
+    # Así pues, lo enviamos vacío.
+    if len(form) < len(all_fields) or not all(key in form for key in all_fields):
         return render_template(
-            "src/views/form_username.html",
+            "src/views/form_contact.html",
             {
                 "username": "",
+                "password": "",
+                "email": "",
+                "birthdate": "",
+                "comment": "",
+
                 "username_error": "",
+                "password_error": "",
+                "email_error": "",
+                "birthdate_error": "",
+                "comment_error": ""
             }
         )
 
     errors: int = 0
 
-    # Limpiamos y validamos los campos (solo hay uno).
-    # 1. Quitamos espacios extras delante y detrás.
-    form["username"] = form["username"].strip()
+    # Limpiamos y validamos los campos.
+    for name in all_fields:
+        # 1. Quitamos espacios extras delante y detrás.
+        form[name] = form[name].strip()
 
-    # 2. comprobar que no esté vacío y que no tenga espacios.
-    if not form["username"]:
-        form["username_error"] = "Campo obligatorio"
-        errors += 1
-    elif " " in form["username"]:
-        form["username_error"] = "El nombre de usuario no puede tener espacios"
-        errors += 1
-    else:
-        form["username_error"] = ""
+        # 2. comprobar que no esté vacío.
+        if not form[name]:
+            form[name + "_error"] = "Campo obligatorio"
+            errors += 1
+        else:
+            form[name + "_error"] = ""
 
     if errors == 0:
         # Si no hay errores => se ha enviado el formulario correctamente.
         return render_template(
             "src/views/message.html",
-            {"message": f"Nombre de usuario que has escrito: {form['username']}"}
+            {"message": "Formulario enviado correctamente"}
         )
     else:
         # Si hay errores => volvemos al formulario pasándole los valores.
-        return render_template("src/views/form_username.html", form)
+        return render_template("src/views/form_contact.html", form)
 
 
 def error404() -> str:

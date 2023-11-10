@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formularios</title>
+  </head>
+  <body>
+    <h1>Tu nombre de usuario</h1>
+
+    <form action="/username" method="get">
+      <p>
+	Nombre de usuario: <input type="text" name="username" value="{username}"><br>
+	<span style="color: red;">{username_error}</span>
+      </p>
+      <p>
+	<input type="submit" value="Enviar">
+      </p>
+    </form>
+  </body>
+</html>
