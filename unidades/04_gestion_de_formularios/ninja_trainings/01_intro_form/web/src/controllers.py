@@ -10,5 +10,5 @@ def error404() -> str:
 
 
 def form_username(environ: dict[str, list[str]]) -> str:
-    # TODO hay que hacer este controlador
-    return "Está por hacer..."
+    # TODO Controlador a completar
+    return "Está por hacer"
