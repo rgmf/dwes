@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>.: Bark :.</title>
+    <style>
+      * {{
+	  margin: 0;
+	  padding: 0;
+	  font-family: sans-serif;
+      }}
+
+      p  {{ font-size: 18px; }}
+      h1 {{ font-size: 36px; }}
+      h2 {{ font-size: 28px; }}
+      h3 {{ font-size: 24px; }}
+      
+      header, footer {{
+	  font-family: serif;
+	  text-align: center;
+	  background-color: #D4F1F4;
+	  color: #05445E;
+	  padding: 20px;
+      }}
+
+      footer p {{
+          font-size: 12px;
+      }}
+
+      footer {{
+          margin-top: 30px;
+      }}
+
+      nav {{
+	  padding: 10px;
+	  text-align: center;
+	  color: #D4F1F4;
+	  background-color: #05445E;
+	  margin-bottom: 30px;
+      }}
+
+      nav ul {{
+	  justify-content: center;
+          align-items: center;
+	  list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+      }}
+
+      nav ul li {{
+   	  margin-right: 20px;
+      }}
+
+      nav a {{
+          text-decoration: none;
+          color: #D4F1F4;
+          font-weight: bold;
+          font-size: 16px;
+      }}
+
+      p.big-center {{
+          font-size: 24px;
+          text-align: center;    
+	  font-weight: bolder;
+	  padding: 0 25% 0 25%;
+      }}
+
+      article {{
+          margin: 0 100px 0 100px;
+      }}
+
+      p {{
+          margin: 10px 0 10px 0;
+      }}
+
+      input[type=text], textarea, select {{
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          box-sizing: border-box;
+	  border-radius: 4px;
+      }}
+
+      input[type=submit] {{
+          background-color: #05445E;
+          color: #D4F1F4;
+          padding: 12px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          float: right;
+      }}
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Bark</h1>
+    </header>
+
+    <nav>
+      <ul>
+	<li><a href="/">Home</a></li>
+	<li><a href="/bark">Ládrate una nueva entrada</a></li>
+      </ul>
+    </nav>
+    
+    <main>
+      <section>
+	<article>
+	  <p>
+	    <form action="/bark" method="post">
+	      <p>
+		Escribe tu nombre de usuario (sin espacios):<br>
+		<input type="text" name="username" value="{username}"><br>
+		<span style="color: red;">{username_error}</span>
+	      </p>
+	      <p>
+		Comentario:</br>
+		<textarea rows="5" name="comment">{comment}</textarea><br>
+		<span style="color: red;">{comment_error}</span>
+	      </p>
+	      <p>
+		Categoría del comentario:</br>
+		<select name="category">
+		  <option value="weather">Hablando del tiempo</option>
+		  <option value="philo">Filosofeando</option>
+		</select>
+	      </p>
+	      <p>
+		<input type="submit" value="Enviar"><br>
+	      </p>
+	    </form>
+	  </p>
+	</article>
+      </section>
+    </main>
+
+    <footer>
+      <p><strong>&copy; Román Martínez</strong></p>
+    </footer>
+  </body>
+</html>
