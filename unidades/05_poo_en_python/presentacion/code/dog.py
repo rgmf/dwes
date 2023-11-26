@@ -1,4 +1,3 @@
-
 class Dog:
     species: str = "Canis familiaris"
 
