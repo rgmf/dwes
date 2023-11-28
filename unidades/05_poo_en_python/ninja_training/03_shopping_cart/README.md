@@ -44,3 +44,5 @@ def name(self) -> str:
 ```
 
 **Importante**: no olvides que, en Python, cuando accedas a un atributo dentro de la clase tienes que anteponer el *keyword* `self`. Por ejemplo, en `Product` cuando vayas a usar el atribut `uuid` lo harás así: `self.__uuid`. Te recuerdo que `self` referencia al objeto o instancia concreta.
+
+**No olvides**: sobreescribir los métodos `__str__` y `__repr__` de todos las clases que escribas. Tu "yo" del futuro acabará agradeciéndoselo a tu "yo" del presente :D

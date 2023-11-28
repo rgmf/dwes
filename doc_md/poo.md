@@ -59,7 +59,7 @@ Se denominan métodos *getters* y *setters* porque estos método suelen empezar 
 
 Veamos un par de ejemplos para aclararlo.
 
-En este ejemplo podemos ver cómo usamos el modo tradicional pero no *pythonesco* para acceder a la fecha de nacimiento de una persona y para modificar dicha fecha. Usamos métodos `get_` y `set_`:
+En este ejemplo podemos ver cómo usamos el modo tradicional pero no *pythonesco* para acceder a la fecha de nacimiento de una persona y para modificar dicha fecha. Usamos métodos `get_` y `set_`. Como ves en el ejemplo se parece mucho a cómo lo hacías en Java:
 
 ```python
 from datetime import datetime
@@ -69,15 +69,26 @@ class Person:
     def __init__(self, name: str, birth_date: datetime):
         self.__name: str = name
         self.__birth_date = birth_date
+		
+	def get_name(self) -> str:
+		return self.__name
 
     def get_birth_date(self) -> datetime:
         return self.__birth_date
 
     def set_birth_date(self, value: datetime) -> None:
 		self.__birth_date = value
+		
+		
+if __name__ == "__main__":
+	person: Person = Person("Alice", datetime(2010, 10, 10, 17, 45, 38))
+	
+	name: str = person.get_name()
+	
+	person.set_birth_date(datetime(2009, 10, 10, 17, 45, 38))
 ```
 
-Pero en Python deberíamos usar los decoradores que te comentaba más arriba. Este sería el ejemplo anterior en el modo *pythonesco*:
+Pero en Python deberíamos usar los decoradores que te comentaba más arriba. Este sería el ejemplo anterior en el modo *pythonesco*. Fíjate bien cómo se accede a los métodos decorados, parece más bien un acceso a atributos:
 
 ```python
 from datetime import datetime
@@ -87,6 +98,10 @@ class Person:
     def __init__(self, name: str, birth_date: datetime):
         self.__name: str = name
         self.__birth_date = birth_date
+		
+	@property
+	def name(self) -> str:
+		return self.__name
 
 	@property
     def birth_date(self) -> datetime:
@@ -95,7 +110,117 @@ class Person:
 	@birth_date.setter
     def birth_date(self, value: datetime) -> None:
 		self.__birth_date = value
+		
+		
+if __name__ == "__main__":
+	person: Person = Person("Alice", datetime(2010, 10, 10, 17, 45, 38))
+	
+	name: str = person.name  # se llama al método get de name.
+	
+	person.birth_date = datetime(2009, 10, 10, 17, 45, 38)  # se llama al método set de birth_date.
 ```
 
-Como ves en esta última versión los métodos *getter* y *setter* se llaman igual: `birth_date`. La diferencia está en el número de parámetros (el *setter* necesita el nuevo valor) y la decoración de los mismos.
+Como ves en esta última versión los métodos *getter* y *setter* para el atributo `birth_date` se llaman igual: `birth_date`. La diferencia está en el número de parámetros (el *setter* necesita el nuevo valor) y la decoración de los mismos.
 
+# Métodos dunder: __str__ y __repr__
+Cuando imprimes un objeto por pantalla aparece la referencia del mismo así como la posición de memoria que ocupa. Esto no nos dice mucho cuando queremos depurar y ver los valores que tienen nuestro objetos y variables.
+
+Para ese tipo de situaciones tenemos los métodos `__str__` y `__repr__` que puedes sobreescribir en cada clase para decidir cómo se van a mostrar por pantalla en los dos contextos posibles:
+
+- En el contexto de un string (por ejemplo porque hacemos un `print` del objeto) se ejecuta el método `__str__` de la clase del objeto.
+
+- En el contexto de la representación de un objeto, como cuando escribimos el nombre del objeto en el REPL de Python, se lanzará el método `__repr__`.
+
+Siguiendo con el ejemplo de la clase anterior de `Person`, si ejecuto este código:
+
+```python
+person: Person = Person("Alice", datetime(2010, 10, 10, 17, 45, 38))
+print(person)
+```
+
+Lo que obtengo por pantalla es algo así:
+
+```python
+<__main__.Person object at 0x7faa67927990>
+```
+
+Lo que nos indica muy poco. Si completamos la clase con sobreescribiendo el método `__str__`:
+
+```python
+from datetime import datetime
+
+
+class Person:
+    def __init__(self, name: str, birth_date: datetime):
+        self.__name: str = name
+        self.__birth_date = birth_date
+		
+	@property
+	def name(self) -> str:
+		return self.__name
+
+	@property
+    def birth_date(self) -> datetime:
+        return self.__birth_date
+
+	@birth_date.setter
+    def birth_date(self, value: datetime) -> None:
+		self.__birth_date = value
+		
+	def __str__(self) -> str:
+		return f"Nombre: {self.name}; Fec. nac.: {self.birth_date}"
+```
+
+Ahora, si ejecutamos:
+
+```python
+person: Person = Person("Alice", datetime(2010, 10, 10, 17, 45, 38))
+print(person)
+```
+
+Lo que obtengo por pantalla es algo así:
+
+```python
+Nombre: Alice; Fec. nac.: 2010-10-10 17:45:38
+```
+
+Y, ahora sí, esto tiene más sentido para nosotros como desarrolladores para poder depurar y visualizar el contenido de la clase `Person`.
+
+Por último, te muestro cómo sobreescribir el método `__repr__` para completar la clase `Person`:
+
+```python
+from datetime import datetime
+
+
+class Person:
+    def __init__(self, name: str, birth_date: datetime):
+        self.__name: str = name
+        self.__birth_date = birth_date
+		
+	@property
+	def name(self) -> str:
+		return self.__name
+
+	@property
+    def birth_date(self) -> datetime:
+        return self.__birth_date
+
+	@birth_date.setter
+    def birth_date(self, value: datetime) -> None:
+		self.__birth_date = value
+		
+	def __str__(self) -> str:
+		return f"Nombre: {self.name}; Fec. nac.: {self.birth_date}"
+		
+	def __repr__(self) -> str:
+		class_name: str = type(self).__name__
+		return f"{class_name}(title={self.__name!r}, author={self.__birt_date!r})"
+```
+
+Siempre puedes llamar de forma explícita a los métodos `__str__` y `__repr__`:
+
+```python
+person: Person = Person("Alice", datetime(2010, 10, 10, 17, 45, 38))
+print(person.__str__())
+print(person.__repr__())
+```
