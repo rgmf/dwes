@@ -151,20 +151,20 @@ from datetime import datetime
 
 
 class Person:
-    def __init__(self, name: str, birth_date: datetime):
-        self.__name: str = name
-        self.__birth_date = birth_date
+	def __init__(self, name: str, birth_date: datetime):
+		self.__name: str = name
+		self.__birth_date = birth_date
 		
 	@property
 	def name(self) -> str:
 		return self.__name
 
 	@property
-    def birth_date(self) -> datetime:
-        return self.__birth_date
+	def birth_date(self) -> datetime:
+		return self.__birth_date
 
 	@birth_date.setter
-    def birth_date(self, value: datetime) -> None:
+	def birth_date(self, value: datetime) -> None:
 		self.__birth_date = value
 		
 	def __str__(self) -> str:
@@ -193,20 +193,20 @@ from datetime import datetime
 
 
 class Person:
-    def __init__(self, name: str, birth_date: datetime):
-        self.__name: str = name
-        self.__birth_date = birth_date
+	def __init__(self, name: str, birth_date: datetime):
+		self.__name: str = name
+		self.__birth_date = birth_date
 		
 	@property
 	def name(self) -> str:
 		return self.__name
 
 	@property
-    def birth_date(self) -> datetime:
-        return self.__birth_date
+	def birth_date(self) -> datetime:
+		return self.__birth_date
 
 	@birth_date.setter
-    def birth_date(self, value: datetime) -> None:
+	def birth_date(self, value: datetime) -> None:
 		self.__birth_date = value
 		
 	def __str__(self) -> str:
