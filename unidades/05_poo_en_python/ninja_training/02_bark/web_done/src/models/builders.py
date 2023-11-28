@@ -5,7 +5,7 @@ from urllib.parse import unquote
 from src.models.models import Comment, BarkForm
 
 
-def build_comments(http_cookies: dict) -> list[Comment]:
+def build_comments(http_cookies: str) -> list[Comment]:
     comments: list[Comment] = []
     cookies: SimpleCookie = SimpleCookie()
     cookies.load(http_cookies)

@@ -3,17 +3,17 @@ En este Ninja Training vas a realizar un programa aplicando la orientación a ob
 
 Solo tienes que implementar las clases que te indico a continuación en formato UML. Escribe estas clases en un fichero llamado `shopping_cart.py`, dentro de una carpeta llamada `src`. Recuerda crear los ficheros `__init__.py` para convertir las carpetas que creas en paquetes de Python.
 
-| Product                                |
-|----------------------------------------|
-| - uuid: str                            |
-| - name: str                            |
-| - description: str                     |
-| - price: float                         |
-|----------------------------------------|
-| + Product(name: str, description: str) |
-| + get_name(): str                      |
-| + get_description(): str               |
-| + get_price(): float                   |
+| Product                                               |
+|-------------------------------------------------------|
+| - uuid: str                                           |
+| - name: str                                           |
+| - description: str                                    |
+| - price: float                                        |
+|-------------------------------------------------------|
+| + Product(name: str, description: str, prices: float) |
+| + get_name(): str                                     |
+| + get_description(): str                              |
+| + get_price(): float                                  |
 
 
 | ShoppingCart                    |

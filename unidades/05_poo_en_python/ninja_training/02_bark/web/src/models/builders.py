@@ -1,10 +1,10 @@
 from src.models.models import Comment, BarkForm
 
 
-def build_comments(http_cookies: dict) -> list[Comment]:
+def build_comments(http_cookies: str) -> list[Comment]:
     """Construye una lista de Comment.
 
-    Esta función recibe un diccionario con las cookies y de ahí construye los
+    Esta función recibe el str con las cookies y de ahí construye los
     comentarios (lista de objetos Comment).
 
     Cada cookie tiene esta forma:
