@@ -11,6 +11,7 @@ Solo tienes que implementar las clases que te indico a continuación en formato 
 | - price: float                                        |
 |-------------------------------------------------------|
 | + Product(name: str, description: str, prices: float) |
+| + get_uuid(): str                                     |
 | + get_name(): str                                     |
 | + get_description(): str                              |
 | + get_price(): float                                  |
