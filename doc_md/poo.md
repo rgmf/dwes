@@ -66,17 +66,17 @@ from datetime import datetime
 
 
 class Person:
-    def __init__(self, name: str, birth_date: datetime):
-        self.__name: str = name
-        self.__birth_date = birth_date
+	def __init__(self, name: str, birth_date: datetime):
+		self.__name: str = name
+		self.__birth_date = birth_date
 		
 	def get_name(self) -> str:
 		return self.__name
 
-    def get_birth_date(self) -> datetime:
-        return self.__birth_date
+	def get_birth_date(self) -> datetime:
+		return self.__birth_date
 
-    def set_birth_date(self, value: datetime) -> None:
+	def set_birth_date(self, value: datetime) -> None:
 		self.__birth_date = value
 		
 		
