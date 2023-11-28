@@ -3,9 +3,8 @@ En este Ninja Training vas a realizar un programa aplicando la orientación a ob
 
 Solo tienes que implementar las clases que te indico a continuación en formato UML. Escribe estas clases en un fichero llamado `shopping_cart.py`, dentro de una carpeta llamada `src`. Recuerda crear los ficheros `__init__.py` para convertir las carpetas que creas en paquetes de Python.
 
-+----------------------------------------+
 | Product                                |
-|----------------------------------------|
++----------------------------------------+
 | - uuid: str                            |
 | - name: str                            |
 | - description: str                     |
@@ -15,19 +14,17 @@ Solo tienes que implementar las clases que te indico a continuación en formato 
 | + get_name(): str                      |
 | + get_description(): str               |
 | + get_price(): float                   |
-+----------------------------------------+
 
-+---------------------------------+
+
 | ShoppingCart                    |
-|---------------------------------|
-| - products: Product             |
-|---------------------------------|
++---------------------------------+
+| - products: list[Product]       |
++---------------------------------+
 | + ShoppingCart()                |
 | + total_price(): float          |
 | + get_products(): list[Product] |
 | + add_product(p: Product)       |
 | + remove_product(p: Product)    |
-+---------------------------------+
 
 UML es un lenguaje de modelado general que se usa independientemente del lenguaje final. En Python, cuando vayamos a implementar estos modelos de UML cambiaremos algunas cosas:
 

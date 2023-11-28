@@ -20,11 +20,11 @@ class Label:
         self.__font = value
 
     def __str__(self) -> str:
-        return f"Etiqueta: {self.texto} ({self.font})"
+        return f"Etiqueta: {self.text} ({self.font})"
 
     def __repr__(self) -> str:
         class_name: str = type(self).__name__
-        return f"<{class_name} (text: {self.text}, label: {self.label})>"
+        return f"<{class_name} (text: {self.text}, label: {self.font})>"
 
 
 label: Label = Label("Etiqueta", "Fira Code")
