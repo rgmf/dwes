@@ -3,7 +3,7 @@ from uuid import uuid4
 
 class Product:
     def __init__(self, name: str, desc: str, price: float) -> None:
-        self.__uuid: str = uuid4()
+        self.__uuid: str = str(uuid4()).replace("-", "")
         self.__name: str = name
         self.__description: str = desc
         self.__price: float = price
