@@ -8,10 +8,11 @@ def delete_movies_between_dates(conn) -> None:
 
     # 1. Crea la Query SQL que guardo en una variable de tipo str de
     #    Python.
-    delete_query: str = f"""
+    delete_query: str = """
     delete from movies
-    where release_year >= {year1} and release_year <= {year2}
+    where release_year >= %s and release_year <= %s
     """
+    values: tuple[int, int] = (year1, year2)
 
     # 2.- Creamos un Cursor de MySQL. Es el objeto con el que podemos
     #     acceder a MySQL para seleccionar, insertar, eliminar o
@@ -28,7 +29,7 @@ def delete_movies_between_dates(conn) -> None:
         # 3.- Usamos el cursor para ejecutar la Query.
         #     Se usa el método "execute" del objeto "Cursor" ("cursor es la
         #     variable de tipo "Cursor").
-        cursor.execute(delete_query)
+        cursor.execute(delete_query, values)
 
         # 4.- Cuando termines de ejecutar todas tus Query recuerda hacer un
         #     commit para hacer efectivos los cambios en la base de datos.

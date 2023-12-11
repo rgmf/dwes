@@ -7,11 +7,12 @@ def select_movies_by_title(conn) -> None:
 
     # 1. Crea la Query SQL que guardo en una variable de tipo str de
     #    Python.
-    select_query: str = f"""
+    select_query: str = """
     select title, release_year, genre
     from movies
-    where title like "%{title}%"
+    where title like %s
     """
+    values: tuple = (f"%{title}%",)
 
     # 2.- Creamos un Cursor de MySQL. Es el objeto con el que podemos
     #     acceder a MySQL para seleccionar, insertar, eliminar o
@@ -28,7 +29,7 @@ def select_movies_by_title(conn) -> None:
         # 3.- Usamos el cursor para ejecutar la Query.
         #     Se usa el método "execute" del objeto "Cursor" ("cursor es la
         #     variable de tipo "Cursor").
-        cursor.execute(select_query)
+        cursor.execute(select_query, values)
 
         # 4.- Como es una SELECT, tras ejecutar la sentencia, podemos recuperar
         #     los resultados con el método "fetchall" del "Cursor".

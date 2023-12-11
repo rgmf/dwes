@@ -12,10 +12,11 @@ def insert_movies(conn) -> None:
 
         # 1. Crea la Query SQL que guardo en una variable de tipo str de
         #    Python.
-        insert_query: str = f"""
+        insert_query: str = """
         insert into movies (title, release_year, genre)
-        value ("{title}", {release_year}, "{genre}")
+        value (%s, %s, %s)
         """
+        values: tuple = (title, release_year, genre)
 
         # 2.- Creamos un Cursor de MySQL. Es el objeto con el que podemos
         #     acceder a MySQL para seleccionar, insertar, eliminar o
@@ -32,7 +33,7 @@ def insert_movies(conn) -> None:
             # 3.- Usamos el cursor para ejecutar la Query.
             #     Se usa el método "execute" del objeto "Cursor" ("cursor es la
             #     variable de tipo "Cursor").
-            cursor.execute(insert_query)
+            cursor.execute(insert_query, values)
 
             # 4.- Cuando termines de ejecutar todas tus Query recuerda hacer un
             #     commit para hacer efectivos los cambios en la base de datos.

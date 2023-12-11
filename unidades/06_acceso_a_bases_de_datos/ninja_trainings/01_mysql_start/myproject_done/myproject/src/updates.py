@@ -10,11 +10,12 @@ def update_movie_by_id(conn) -> None:
 
     # 1. Crea la Query SQL que guardo en una variable de tipo str de
     #    Python.
-    update_query: str = f"""
+    update_query: str = """
     update movies set
-    title="{title}", release_year={release_year}, genre="{genre}"
-    where id={id}
+    title=%s, release_year=%s, genre=%s
+    where id=%s
     """
+    values: tuple = (title, release_year, genre, id)
 
     # 2.- Creamos un Cursor de MySQL. Es el objeto con el que podemos
     #     acceder a MySQL para seleccionar, insertar, eliminar o
@@ -31,7 +32,7 @@ def update_movie_by_id(conn) -> None:
         # 3.- Usamos el cursor para ejecutar la Query.
         #     Se usa el método "execute" del objeto "Cursor" ("cursor es la
         #     variable de tipo "Cursor").
-        cursor.execute(update_query)
+        cursor.execute(update_query, values)
 
         # 4.- Cuando termines de ejecutar todas tus Query recuerda hacer un
         #     commit para hacer efectivos los cambios en la base de datos.
