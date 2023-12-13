@@ -1,0 +1,4 @@
+gunicorn~=21.2.0
+mysql-connector-python~=8.2.0
+multipart~=0.2.4
+tzdata~=2023.3

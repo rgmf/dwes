@@ -24,3 +24,7 @@ Te recomiendo que guardes todas tus fechas en formato ISO-8601 en UTC. Luego pod
 4. [La (des)Orientación a Objetos en Python](poo.md)
 
 Python es un lenguaje multiparadigma que incorpora la Programación Orientada a Objetos. Te resumo aquí lo más importante. Casi todo son fragmentos de código. Si "mareas" un poco por la Web encontrarás mejores recursos.
+
+5. [Acceso a bases de datos desde Python](bbdd.md)
+
+Casi todos, sino todos, los programas necesitan alguna manera de guardar permanentemente datos e información (persistencia de datos). Hay varias soluciones. Aquí te explico cómo usar bases de datos.

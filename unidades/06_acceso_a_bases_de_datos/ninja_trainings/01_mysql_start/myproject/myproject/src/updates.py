@@ -1,2 +1,2 @@
-def update_movie_by_id(conn) -> None:
+def update_movie_by_id() -> None:
     pass

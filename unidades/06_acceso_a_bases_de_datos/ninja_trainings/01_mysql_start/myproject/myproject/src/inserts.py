@@ -1,2 +1,2 @@
-def insert_movies(conn) -> None:
+def insert_movies() -> None:
     pass

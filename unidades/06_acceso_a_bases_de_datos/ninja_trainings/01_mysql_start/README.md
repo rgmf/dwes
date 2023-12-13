@@ -26,7 +26,7 @@ $ docker compose ps
 ```
 
 # Acceso a MySQL a través de Adminer
-Para acceder a Adminer abre tu navegador web y accede a la dirección `http://localhost:8080`.
+Para acceder a Adminer abre tu navegador web y accede a la dirección `http://localhost:9000`.
 
 Como ves en `docker-compose.yml` hemos configurado el contenedor de Adminer para que escuche en el puerto 8080. Si lo tienes ocupado por otra aplicación lo tendrás que cambiar.
 
