@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  python:
+    build: .
+    ports:
+      - "8888:8000"
+    volumes:
+      - ./bark:/app
+    depends_on:
+      - db
+
+  db:
+    image: mariadb
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MARIADB_DATABASE: dwesdb
+      MARIADB_USER: dwes
+      MARIADB_PASSWORD: dwes
+      MARIADB_ROOT_PASSWORD: dwes
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 9000:8080
+
+volumes:
+  mariadb_data:

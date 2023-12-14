@@ -40,7 +40,9 @@ Los pasos que se tienen que dar, cada vez que tengas que acceder a la base de da
 1. Abrir conexión con MariaDB.
 2. Crear un cursor.
 3. Usar ese cursor para realizar operaciones (SQL).
-4. Recoger resultados.
+4. Recoger resultados: rowcount o fetchone/fetchall.
+
+> fetchone o fetchall solo hay que usarlo para sentencias SQL Select para recoger la información de las filas (tuplas) devueltas como resultado de dicha select.
 
 ## Ejemplo de insert
 ```python
@@ -132,7 +134,7 @@ with connect(host="l", user="d", password="d", database="db") as conn:
 		print(f"Se han actualizado {cursor.rowcount} estudiantes")
 ```
 
-# Ejemplo de select
+## Ejemplo de select
 ```python
 from mysql.connector import connect
 
@@ -141,10 +143,65 @@ with connect(host="l", user="d", password="d", database="db") as conn:
 	with conn.cursor() as cursor:
 		sql = "select nia, name, age from students"
 		
-		results = cursor.execute(sql, values)
+        cursor.execute(sql, values)
+		results = cursor.fetchall()
 		for row in results:
 			print(f"Datos del estudiante con NIA {row[0]}:")
 			print(f"Nombre: {row[1]}")
 			print(f"Edad: {row[2]}")
 			print()
+```
+
+# Notas importantes
+Te pongo un código de ejemplo, el que vimos en clase, y te recurdo algunos puntos en los subapartados siguientes.
+
+```python
+def insert_comment(comment: str, category: str) -> None:
+	with connect(host="h", user="u", password="p", database="db") as conn:
+		with conn.cursor(buffered=True) as cursor:
+			sql = "select id from categories where category=%s"
+			values = (category,)
+
+	        category_id = None
+
+	        cursor.execute(sql, values)
+			result = cursor.fetchone()
+            if not result:
+                sql = "insert into categories (name) values (%s)"
+                values = (category,)
+
+                cursor.execute(sql, values)
+                conn.commit()
+
+                category_id = cursor.lastrowid
+            else:
+                category_id = result[0]
+
+            sql = "insert into comments (comment, category) values (%s, %s)"
+            values = (comment, category)
+
+            cursor.execute(sql, values)
+            conn.commit()
+```
+
+## Atributos del cursor
+Recuerda que el objeto `Cursor` tiene varias propiedades que te pueden resultar muy útil y que acabarás usando:
+
+- `rowcount`: es un atributo de tipo `int` que contiene el número de filas efactada en la última query. Puedes usar este valor para verificar que la operación haya sido correcta. También puedes comprobar cuántas filas se han insertado, eliminado, actualizado...
+
+- `lastrowid`: tiene el último valor generado por un atributo con el *flag* de `auto_increment`. El ejemplo típico de uso es el siguiente: insertas un registro nuevo en una tabla con un insert y quieres/necesitas el valor que se ha generado para el `id` en esa tabla.
+
+## No olvides el commit
+Cuando hagas *insert*, *delete* o *update* no olvides llamar al método `commit` del conector a MariaDB después de elecutar la SQL.
+
+## ¿Quieres ejecutar varias SQL con el mismo objeto cursor?
+Pues no olvides pasar al parámetro `buffered` el valor de `True`:
+
+```python
+...
+
+with conn.cursor(buffered=True) as cursor:
+	...
+	
+...
 ```

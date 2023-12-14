@@ -74,4 +74,8 @@ que no lo sé.
 # Descripción del Ninja Training
 En este Ninja Training tienes que completar la aplicación web con la parte de accesso a la base de datos. La práctica te sonará: la hicimos usando *Cookies*, un follón. Por fin hemos llegado a **bases de datos** para hacerla bien.
 
-Además, vamos a añadir la posibilidad de dar *likes* a *los ladridos*.
+Todo el código que tienes que escribir está en el fichero `src/db/database.py`. Detodos modos, echa un vistazo a los controladores y analiza/estudia el código. Si no lo entiendes no continúes, pregúntame.
+
+La aplicación la puedes levantar y probar. Verás que siempre da error al insertar y que no devuelve ningún "ladrido", porque la función `get_comments` siempre devuelve una lista vacía hasta que la completes, y la función `insert_comment` siempre devuelve `False` hasta que la completes.
+
+Además, vamos a añadir la posibilidad de dar *likes* a *los ladridos*. Pero esto será opcional y ya veremos si lo hacemos o no.
