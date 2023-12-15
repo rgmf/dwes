@@ -143,7 +143,7 @@ with connect(host="l", user="d", password="d", database="db") as conn:
     with conn.cursor() as cursor:
         sql = "select nia, name, age from students"
         
-        cursor.execute(sql, values)
+        cursor.execute(sql)
         results = cursor.fetchall()
         for row in results:
             print(f"Datos del estudiante con NIA {row[0]}:")
@@ -250,5 +250,5 @@ try:
             else:
                 print("No se ha insertado el estudiante")
 except Exception as e:
-    logging.debug(f"Error en la base de datos: {str(e)}")
+    logging.error(f"Error en la base de datos: {str(e)}")
 ```
