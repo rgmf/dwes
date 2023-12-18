@@ -46,3 +46,32 @@ El programa en Python está dockerizado, así que cada vez que quieras ejecutar 
 ``` shell
 $ docker compose run python
 ```
+
+# Descripción del Ninja Training
+Tienes que completar las funciones que ves en los ficheros `deletes.py`, `inserts.py`, `selects.py` y `updates.py` para que el programa quede completo.
+
+Si lo ejecutas verás un menú para hacer diversas operaciones sobre la base de datos. Ahora mismo no se hace nada porque las funciones de las que te hablo están vacías.
+
+# Si acabas... puedes seguir
+Cuando termines, puedes completar el programa añadiendo las siguientes opcioens (son todo `selects` así que escribe el código necesario en `selects.py`).
+
+En el documento `SELECTS.sql` puedes ver las *selects* que tendrías que usar en estos ejemplos. No los mires si no es estrictamente necesarios, trata de obtener las *selects* por ti mismo/a, revisa la documentación de **Bases de Datos**, repasa y tómate todo el tiempo necesario para ponerte al día con **SQL**.
+
+## Valoraciones de un usuario
+Añade la opción de poder ver las valoraciones que ha hecho un usuario ordenadas de mayor a menor ranking.
+
+Para ello, pedirás el nombre de usuario y el programa mostrará un listado del nombre de las películas y las valoraciones que ha hecho dicho usuario. Ordénalas por ranking, de menor a mayor.
+
+NO VAYAS DIRECTO A PROGRAMAR: en su lugar, **abre Adminer** y **prueba la select** que obtendría dicha información de la base de datos. Cuando tengas clara la *select* entonces pasa a la programación.
+
+## Ranking de las películas
+Añade la posibilidad de hacer un ranking de películas, en la que se muestre el nombre de la película y la media de valoraciones.
+
+NO VAYAS DIRECTO A PROGRAMAR: en su lugar, **abre Adminer** y **prueba la select** que obtendría dicha información de la base de datos. Cuando tengas clara la *select* entonces pasa a la programación.
+
+## Usuario más activo
+Añade la opción de poder ver al usuario más activo, el que más películas ha valorado. Si hay varios con el mismo número que salga el primero sin más.
+
+Aquí puedes, simplemente, obtener el listado de usuarios y número de valoraciones, ordenarlos de mayor a menor y obtener el primero.
+
+NO VAYAS DIRECTO A PROGRAMAR: en su lugar, **abre Adminer** y **prueba la select** que obtendría dicha información de la base de datos. Cuando tengas clara la *select* entonces pasa a la programación.
