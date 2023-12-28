@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 
+from fastapi import HTTPException, status
 from pydantic import BaseModel
 from passlib.context import CryptContext
 from fastapi.security import OAuth2PasswordBearer
@@ -12,7 +13,7 @@ from app.db.schemas import User
 # Crea un código seguro con el comando: openssl rand -hex 32
 SECRET_KEY = "12ab2624a67ebe61b859dd6e6937d96c553f1806393d3fb024660bce875a1dcd"
 # Podemos cifrar usando varios algoritmos: en este caso HS256.
-ALGORITH = "HS256"
+ALGORITHM = "HS256"
 
 # Por seguridad vamos a usar un tiempo de expiración del token que mandamos.
 # Pasado este tiempo en minutos el token lo consideraremos caducado.
