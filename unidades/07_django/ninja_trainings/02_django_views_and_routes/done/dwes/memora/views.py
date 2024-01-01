@@ -49,7 +49,7 @@ def detail(request, note_id):
     <body>
         <h1>Detalles de la nota</h1>
         <p>{note}</p>
-        <small>{category></small>
+        <small>{category}</small>
     </body>
     </html>
     """
