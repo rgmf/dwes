@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Memor</title>
+    <title>Memora</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
@@ -15,13 +15,14 @@
     </nav>
 
     <div class="container">
-      <div class="card" style="width: 18rem;">
-	<div class="card-body">
-	  <h5 class="card-title">Detalles de la nota</h5>
-	  <h6 class="card-subtitle mb-2 text-body-secondary">{{ note.category.name }}</h6>
-	  <p class="card-text">{{ note.note }}</p>
-	</div>
-      </div>
+      <h1>Listado de notas</h1>
+      <ul class="list-group">
+	{% for n in notes %}
+	  <li class="list-group-item">{{ n.note}}</li>
+	{% empty %}
+	  <li class="list-group-item">No hay notas</li>
+	{% endfor %}
+      </ul>
     </div>
   </body>
 </html>
