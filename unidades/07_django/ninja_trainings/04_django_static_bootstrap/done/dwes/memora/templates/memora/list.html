@@ -1,0 +1,28 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <title>Memora</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </head>
+  <body>
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+	<span class="navbar-brand mb-0 h1">Memora</span>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1>Listado de notas</h1>
+      <ul class="list-group">
+	{% for n in notes %}
+	  <li class="list-group-item">{{ n.note}}</li>
+	{% empty %}
+	  <li class="list-group-item">No hay notas</li>
+	{% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>

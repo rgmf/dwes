@@ -18,7 +18,7 @@ Este comando crea toda la estructura sobre la que construir el proyecto:
 ``` shell
 dwes/
     manage.py
-    dwes/
+dwes/
         __init__.py
         settings.py
         urls.py
