@@ -19,11 +19,11 @@ Este comando crea toda la estructura sobre la que construir el proyecto:
 dwes/
     manage.py
 dwes/
-        __init__.py
-        settings.py
-        urls.py
-        asgi.py
-        wsgi.py
+    __init__.py
+    settings.py
+    urls.py
+    asgi.py
+    wsgi.py
 ```
 
 # Enciende las luces y prueba tu proyecto
@@ -87,7 +87,7 @@ memora/
         __init__.py
     models.py
     tests.py
-	urls.py
+    urls.py
     views.py
 ```
 
@@ -178,12 +178,12 @@ Antes, te muestro a continuación el Modelo Relacional de la base de datos que v
 ``` text
 categories(id, name)
     PK: id
-	VNN: name
-	
+    VNN: name
+    
 notes(id, note, pub_date, category_id)
-	PK: id
-	VNN: note, pub_date
-	FK: category -> categories(id)
+    PK: id
+    VNN: note, pub_date
+    FK: category -> categories(id)
 ```
 
 Conocida nuestro esquema de base de datos aquí tienes el contenido del fichero `models.py`:
