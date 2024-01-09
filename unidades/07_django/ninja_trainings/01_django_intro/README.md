@@ -199,7 +199,7 @@ class Category(models.Model):
 class Note(models.Model):
     note = models.TextField()
     pub_date = models.DateTimeField("date published")
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, on_update=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
 ```
 
