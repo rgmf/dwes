@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <h1>Listado de notas</h1>
+  <ul class="list-group">
+    {% for n in notes %}
+      <li class="list-group-item">{{ n.note}}</li>
+    {% empty %}
+      <li class="list-group-item">No hay notas</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
