@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/memora/notes/create/" method="post">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value="Añadir nota">
+</form>
+{% endblock %}
