@@ -24,10 +24,10 @@ Pero, como ves, hemos tenido que escribir en el `href` la ruta literalmente, lo 
 
 Para resolver estos inconvenientes debemos usar lo que se denomina como *Reverse Resolution of URLs*: es decir, usar los identificadores de esas rutas en vez de las rutas en sí.
 
-En Django podemos usar:
+En Django lo podemos usar:
 
-- En las *plantillas* usando la etiqueta `url` (`{% url ... %}`).
-- En el código de Python utilizando la función `reverse` (que puedes importar del módulo `django.urls`).
+- En las *plantillas* con la etiqueta `url` (`{% url ... %}`).
+- En el código de Python con la función `reverse` (que puedes importar del módulo `django.urls`).
 - También en el código relacionado con las URLs de Django, a través de las instancias de los modelos con el método `get_absolute_url()`.
 
 Llegados aquí, ¿qué es el identificador de un ruta? El valor que le damos al parámetro `name` en la función `path`:
@@ -37,7 +37,8 @@ from django.urls import path
 
 from . import views
 
-path("", views.index, name="index"),
+urlpatterns = [
+    path("", views.index, name="index"),
     path("notes/", views.notes, name="notes"),
     path("notes/<int:note_id>/", views.detail, name="detail"),
     path("notes/create/", views.create_note, name="create_note")
@@ -77,7 +78,8 @@ from . import views
 
 app_name = "memora"
 
-path("", views.index, name="index"),
+urlpatterns = [
+	path("", views.index, name="index"),
     path("notes/", views.notes, name="notes"),
     path("notes/<int:note_id>/", views.detail, name="detail"),
     path("notes/create/", views.create_note, name="create_note")
