@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <h1>Listado de notas</h1>
+  <ul class="list-group">
+    {% for n in notes %}
+    <li class="list-group-item">
+      {{ n.note }}<br>
+      <small>
+	<a class="link-offset-2 link-underline link-underline-opacity-0"
+	   href="{% url 'memora:detail' n.id %}">
+	  Detalles
+	</a>
+      </small>
+    </li>
+    {% empty %}
+      <li class="list-group-item">No hay notas</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
