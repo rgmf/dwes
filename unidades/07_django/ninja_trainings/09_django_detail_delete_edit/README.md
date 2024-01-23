@@ -82,7 +82,7 @@ def edit(request, dog_id):
             form.save()
             return redirect(reverse("main:dogs"))
     else:
-        form = DogForm(instance=note)
+        form = DogForm(instance=dog)
 
     return render(
         request,
