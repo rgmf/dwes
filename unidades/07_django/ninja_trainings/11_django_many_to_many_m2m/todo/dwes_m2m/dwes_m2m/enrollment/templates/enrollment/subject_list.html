@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <h1>Listado de materias</h1>
+  <ul class="list-group">
+    {% for s in subjects %}
+    <li class="list-group-item">
+      {{ s.name}}<br>
+      <small>
+	<a class="link-offset-2 link-underline link-underline-opacity-0"
+	   href="{% url 'enrollment:subject_detail' s.id %}">
+	  Detalles
+	</a>
+      </small>
+    </li>
+    {% empty %}
+      <li class="list-group-item">No hay materias</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

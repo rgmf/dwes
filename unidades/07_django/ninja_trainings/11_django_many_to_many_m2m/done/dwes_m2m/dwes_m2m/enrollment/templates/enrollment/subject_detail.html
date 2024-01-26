@@ -9,18 +9,5 @@
       <p class="card-text">{{ subject.description }}</p> 
     </div>
   </div>
-  
-  {% if subject.students.exists %}
-  <ul class="list-group list-group-flush">
-    {% for s in subject.students.all %}
-    <li class="list-group-item">
-      {{ s.name }} {{ s.surname }}
-    </li>
-    {% endfor %}
-  </ul>
-  {% else %}
-  <p class="alert alert-info">No hay estudiantes matriculados a esta materia</p>
-  {% endif %}
-  <a href="{% url 'enrollment:subject_enroll_student' subject.id %}">Matricular alumnado</a>
 </div>
 {% endblock %}

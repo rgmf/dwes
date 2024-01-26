@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
+from django.db.utils import IntegrityError
 
-from .models import Subject
-from .forms import SubjectForm, StudentForm
+from .models import Subject, Enrollment
+from .forms import SubjectForm, StudentForm, EnrollmentForm
 
 
 def index(request):
@@ -32,6 +33,32 @@ def subject_create(request):
         request,
         "enrollment/form.html",
         {"form": form, "header": "Añadir Materia"}
+    )
+
+
+def subject_enroll_student(request, id):
+    subject = get_object_or_404(Subject, id=id)
+    message = ""
+
+    if request.method == "POST":
+        form = EnrollmentForm(request.POST)
+        if form.is_valid():
+            try:
+                Enrollment.objects.create(
+                    student=form.cleaned_data["student"],
+                    subject=subject,
+                    morning_session=form.cleaned_data["morning_session"]
+                )
+                return redirect(reverse("enrollment:subject_detail", args=(id,)))
+            except IntegrityError:
+                message = "Ya existe el alumno en el curo"
+    else:
+        form = EnrollmentForm()
+
+    return render(
+        request,
+        "enrollment/form.html",
+        {"form": form, "header": "Matricular Alumnado", "message": message}
     )
 
 
