@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-md my-4">
+  <div class="row">
+    <div class="col-12">
+      <p class="alert alert-info">Has cerrado tu sesión... ¡hasta pronto!</p>
+      <a href="{% url 'memora:index' %}">Volver</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

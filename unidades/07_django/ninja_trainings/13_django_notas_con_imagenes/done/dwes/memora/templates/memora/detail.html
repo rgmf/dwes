@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Detalles de la nota</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{ note.category.name }}</h6>
+      <p class="card-text">{{ note.note }}</p>
+      {% if note.image %}
+      <img src="{{ note.image.url }}">
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
